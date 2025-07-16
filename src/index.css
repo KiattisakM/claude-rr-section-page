@@ -74,6 +74,21 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Design System Colors */
+  --app-background: #F5F5F5;
+  --app-surface: #FFFFFF;
+  --app-text-primary: #000000;
+  --app-text-secondary: #374151;
+  --app-text-muted: #6B7280;
+  --app-green: #4ADE80;
+  --app-purple: #A855F7;
+  --app-yellow: #FDE047;
+  --app-border: #D1D5DB;
+  
+  /* Tailwind Color Variables for Moving Border */
+  --sky-500: #0ea5e9;
+  --app-green: #4ADE80;
 }
 
 .dark {
@@ -116,5 +131,62 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-app-background {
+    background-color: var(--app-background);
+  }
+  .bg-app-surface {
+    background-color: var(--app-surface);
+  }
+  .text-app-primary {
+    color: var(--app-text-primary);
+  }
+  .text-app-secondary {
+    color: var(--app-text-secondary);
+  }
+  .text-app-muted {
+    color: var(--app-text-muted);
+  }
+  .bg-app-green {
+    background-color: var(--app-green);
+  }
+  .bg-app-purple {
+    background-color: var(--app-purple);
+  }
+  .bg-app-yellow {
+    background-color: var(--app-yellow);
+  }
+  .border-app-border {
+    border-color: var(--app-border);
+  }
+  
+  /* Shimmer Button Animations */
+  .animate-shimmer-slide {
+    animation: shimmer-slide var(--speed) ease-in-out infinite;
+  }
+  
+  .animate-spin-around {
+    animation: spin-around var(--speed) linear infinite;
+  }
+}
+
+@keyframes shimmer-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin-around {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
